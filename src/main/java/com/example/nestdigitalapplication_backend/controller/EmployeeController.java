@@ -4,10 +4,7 @@ package com.example.nestdigitalapplication_backend.controller;
 import com.example.nestdigitalapplication_backend.dao.EmployeeDao;
 import com.example.nestdigitalapplication_backend.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -78,6 +75,22 @@ public class EmployeeController {
             map.put("status","success");
         }
         return map;
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping(path = "/viewemp")
+    public List<Employee> EmployView()
+    {
+        return (List<Employee>) dao.findAll();
+    }
+
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/employprofile",consumes = "application/json",produces = "application/json")
+    public List<Employee> EmpViewByID(@RequestBody Employee e)
+    {
+        String id=String.valueOf(e.getId());
+        System.out.println(id);
+        return (List<Employee>) dao.EmpViewByID(e.getId());
     }
 
 
