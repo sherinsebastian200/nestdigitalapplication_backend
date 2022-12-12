@@ -1,26 +1,30 @@
 package com.example.nestdigitalapplication_backend.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 @Entity
 @Table(name = "leaveapplicaitons")
 public class Leaveapplication {
+
+    @Id
+    @GeneratedValue
 
     private int id;
     private int empid;
     private String leavetype;
     private String remarks;
-    private int fromdate;
-    private int todate;
-    private int leaveapplydate;
-    private int status;
+    private String fromdate;
+    private String todate;
+    private String  leaveapplydate;
+    private String status;
 
 
     public Leaveapplication() {
     }
 
-    public Leaveapplication(int id, int empid, String leavetype, String remarks, int fromdate, int todate, int leaveapplydate, int status) {
+    public Leaveapplication(int id, int empid, String leavetype, String remarks, String fromdate, String todate, String leaveapplydate, String status) {
         this.id = id;
         this.empid = empid;
         this.leavetype = leavetype;
@@ -63,35 +67,35 @@ public class Leaveapplication {
         this.remarks = remarks;
     }
 
-    public int getFromdate() {
+    public String getFromdate() {
         return fromdate;
     }
 
-    public void setFromdate(int fromdate) {
+    public void setFromdate(String fromdate) {
         this.fromdate = fromdate;
     }
 
-    public int getTodate() {
+    public String getTodate() {
         return todate;
     }
 
-    public void setTodate(int todate) {
+    public void setTodate(String todate) {
         this.todate = todate;
     }
 
-    public int getLeaveapplydate() {
+    public String getLeaveapplydate() {
         return leaveapplydate;
     }
 
-    public void setLeaveapplydate(int leaveapplydate) {
+    public void setLeaveapplydate(String leaveapplydate) {
         this.leaveapplydate = leaveapplydate;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }
