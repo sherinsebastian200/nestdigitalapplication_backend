@@ -6,31 +6,25 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Employees")
-
-public class Employee {
+@Table(name = "SecurityGuard")
+public class Security {
 
     @Id
     @GeneratedValue
+
     private int id;
     private int empcode;
-    private String empname;
-    private String designation;
-    private int salary;
+    private String secname;
     private String username;
     private String password;
 
-
-    public Employee() {
+    public Security() {
     }
 
-
-    public Employee(int id, int empcode, String empname, String designation, int salary, String username, String password) {
+    public Security(int id, int empcode, String secname, String username, String password) {
         this.id = id;
         this.empcode = empcode;
-        this.empname = empname;
-        this.designation = designation;
-        this.salary = salary;
+        this.secname = secname;
         this.username = username;
         this.password = password;
     }
@@ -51,28 +45,12 @@ public class Employee {
         this.empcode = empcode;
     }
 
-    public String getEmpname() {
-        return empname;
+    public String getSecname() {
+        return secname;
     }
 
-    public void setEmpname(String empname) {
-        this.empname = empname;
-    }
-
-    public String getDesignation() {
-        return designation;
-    }
-
-    public void setDesignation(String designation) {
-        this.designation = designation;
-    }
-
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
+    public void setSecname(String secname) {
+        this.secname = secname;
     }
 
     public String getUsername() {
@@ -91,3 +69,5 @@ public class Employee {
         this.password = password;
     }
 }
+
+
