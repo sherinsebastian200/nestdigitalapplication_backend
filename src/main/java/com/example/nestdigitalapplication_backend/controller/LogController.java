@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class LogController {
     @Autowired
-    private LogDaoC dao;
+    private LogDao dao;
 
 
     @CrossOrigin(origins = "*")
