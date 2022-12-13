@@ -15,10 +15,18 @@ import java.util.Map;
 public class LeaveController {
     @Autowired
     private LeaveApplicationDao dao;
+
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/leaveapply",produces = "application/json",consumes = "application/json")
-    public Map<String,String>ApplyLeave(@RequestBody Leaveapplication l)
+    public Map<String,String> ApplyLeave(@RequestBody Leaveapplication l)
     {
+        System.out.println(l.getEmpid());
+        System.out.println(l.getLeavetype().toString());
+        System.out.println(l.getRemarks().toString());
+        System.out.println(l.getFromdate().toString());
+        System.out.println(l.getTodate().toString());
+        System.out.println(l.getLeaveapplydate().toString());
+        System.out.println(l.getStatus().toString());
         dao.save(l);
         HashMap<String,String> map=new HashMap<>();
         map.put("status","success");
@@ -45,6 +53,9 @@ public class LeaveController {
         map.put("status","success");
         return map;
     }
+
+
+
 
 }
 
