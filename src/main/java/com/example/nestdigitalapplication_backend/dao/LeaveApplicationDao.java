@@ -13,7 +13,7 @@ import java.util.Map;
 public interface LeaveApplicationDao extends CrudRepository<Leaveapplication,Integer> {
 
 
-    @Query(value = "    SELECT e.`empcode`, e. `empname`, l.`fromdate`, l. `leaveapplydate`,l. `leavetype`, l.`status`, l.`todate`FROM `employees` e JOIN leaveapplications l ON e.id=l.empid",nativeQuery = true)
+   @Query(value = "SELECT  e.`empcode`, e.`empname`,l.fromdate,l.leaveapplydate,l.leavetype,l.status,l.todate FROM `employees` e JOIN leaveapplicaitons l ON e.id = l.empid ",nativeQuery = true)
     List<Map<String,String>> ViewAllLeave();
 
 
@@ -21,5 +21,7 @@ public interface LeaveApplicationDao extends CrudRepository<Leaveapplication,Int
     @Transactional
     @Query(value = "UPDATE `leaveapplications` SET `status`= :status WHERE `empid`= :empid",nativeQuery = true)
     void UpdateStatus(@Param("empid") Integer empid, @Param("status") String status);
+
+
 
 }
